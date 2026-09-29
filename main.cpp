@@ -120,3 +120,21 @@ void displayAccounts(const vector<BankAccount>& accounts) {
         cout << "Balance: $" << accounts[i].getBalance() << endl;
     }
 }
+
+int main() {
+    //keeps track of all the accounts
+    vector<BankAccount> accounts;
+
+    int choice;
+
+    do {
+        cout << "\n===== Bank Account Management System =====\n";
+        cout << "1. Create Account\n";
+        cout << "2. Display Accounts\n";
+        cout << "3. Deposit\n";
+        cout << "4. Withdraw\n";
+        cout << "5. Change Account Holder Name\n";
+        cout << "6. Exit\n";
+        cout << "Enter your choice: ";
+
+        choice = getInteger();
