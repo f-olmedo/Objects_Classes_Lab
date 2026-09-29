@@ -77,3 +77,46 @@ public:
         }
     }
 };
+
+// Gets a valid integer from the user
+int getInteger() {
+    int value;
+
+    while (!(cin >> value)) {
+        cout << "Invalid input. Please enter a number: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    return value;
+}
+
+// Gets a valid positive amount from the user
+double getAmount() {
+    double amount;
+
+    while (!(cin >> amount) || amount <= 0) {
+        cout << "Invalid amount. Enter a value greater than 0: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    return amount;
+}
+
+// Displays all accounts
+void displayAccounts(const vector<BankAccount>& accounts) {
+    if (accounts.empty()) {
+        cout << "No accounts available.\n";
+        return;
+    }
+
+    cout << fixed << setprecision(2);
+
+    for (size_t i = 0; i < accounts.size(); ++i) {
+        cout << "\nAccount " << i + 1 << endl;
+        cout << "Account Number: " << accounts[i].getAccountNumber() << endl;
+        cout << "Account Holder: " << accounts[i].getAccountHolderName() << endl;
+        cout << "Balance: $" << accounts[i].getBalance() << endl;
+    }
+}
