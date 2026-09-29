@@ -209,3 +209,43 @@ int main() {
                 }
             }
         }
+        else if (choice == 5) {
+            if (accounts.empty()) {
+                cout << "No accounts available.\n";
+            }
+            else {
+                displayAccounts(accounts);
+
+                cout << "\nEnter account number (1-" << accounts.size() << "): ";
+                int accountIndex = getInteger();
+
+                if (accountIndex >= 1 &&
+                    accountIndex <= static_cast<int>(accounts.size())) {
+
+                    string newName;
+
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+                    cout << "Enter new account holder name: ";
+                    getline(cin, newName);
+
+                    accounts[accountIndex - 1].setAccountHolderName(newName);
+
+                    cout << "Account holder name updated.\n";
+                    }
+                else {
+                    cout << "Invalid account number.\n";
+                }
+            }
+        }
+        else if (choice == 6) {
+            cout << "Thank you for using the Bank Account Management System.\n";
+        }
+        else {
+            cout << "Invalid choice. Please select 1-6.\n";
+        }
+
+    } while (choice != 6);
+
+    return 0;
+}
