@@ -11,3 +11,17 @@ Purpose: Implement a BankAccount class to simulate basic banking operations for 
 #include <iomanip>
 
 using namespace std;
+
+class BankAccount {
+private:
+    string accountNumber;
+    string accountHolderName;
+    double balance;
+
+public:
+    // Empty account w default values
+    BankAccount() {
+        accountNumber = "Unknown";
+        accountHolderName = "Unknown";
+        balance = 0.0;
+    }
