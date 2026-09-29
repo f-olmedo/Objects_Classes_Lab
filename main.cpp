@@ -138,3 +138,25 @@ int main() {
         cout << "Enter your choice: ";
 
         choice = getInteger();
+
+        if (choice == 1) {
+            string accountNumber;
+            string accountHolderName;
+            double initialBalance;
+
+            cout << "Enter account number: ";
+            cin >> accountNumber;
+
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "Enter account holder name: ";
+            getline(cin, accountHolderName);
+
+            cout << "Enter initial balance: ";
+            initialBalance = getAmount();
+
+            // Add new account to the vector
+            accounts.emplace_back(accountNumber, accountHolderName, initialBalance);
+
+            cout << "Account created successfully.\n";
+        }
