@@ -160,3 +160,52 @@ int main() {
 
             cout << "Account created successfully.\n";
         }
+        else if (choice == 2) {
+            displayAccounts(accounts);
+        }
+        else if (choice == 3) {
+            if (accounts.empty()) {
+                cout << "No accounts available.\n";
+            }
+            else {
+                displayAccounts(accounts);
+
+                cout << "\nEnter account number (1-" << accounts.size() << "): ";
+                int accountIndex = getInteger();
+
+                if (accountIndex >= 1 &&
+                    accountIndex <= static_cast<int>(accounts.size())) {
+
+                    cout << "Enter deposit amount: ";
+                    double amount = getAmount();
+
+                    accounts[accountIndex - 1].deposit(amount);
+                    }
+                else {
+                    cout << "Invalid account number.\n";
+                }
+            }
+        }
+        else if (choice == 4) {
+            if (accounts.empty()) {
+                cout << "No accounts available.\n";
+            }
+            else {
+                displayAccounts(accounts);
+
+                cout << "\nEnter account number (1-" << accounts.size() << "): ";
+                int accountIndex = getInteger();
+
+                if (accountIndex >= 1 &&
+                    accountIndex <= static_cast<int>(accounts.size())) {
+
+                    cout << "Enter withdrawal amount: ";
+                    double amount = getAmount();
+
+                    accounts[accountIndex - 1].withdraw(amount);
+                    }
+                else {
+                    cout << "Invalid account number.\n";
+                }
+            }
+        }
